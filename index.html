@@ -81,7 +81,7 @@ button {
     border-radius: 15px;
 }
 
-/* Tối ưu riêng cho màn hình nhỏ */
+/* Responsive mobile */
 @media (max-width: 480px) {
     h1 {
         font-size: 26px;
@@ -103,7 +103,11 @@ button {
 
 <h1>🧧 BỐC LÌ XÌ TẾT 2026 🧧</h1>
 <p>Chọn 1 bao lì xì may mắn 🎁</p>
-<p>Lưu ý:chỉ chọn 1 lần ,số tiền tuy nhỏ nhưng mang nhiều ý nghĩa 🎁</p>
+
+<p style="color: gold; font-weight: bold;">
+⚠ Lưu ý: Chỉ chọn 1 lần, số tiền tuy nhỏ nhưng mang nhiều ý nghĩa 🎁
+</p>
+
 <div class="envelopes">
     <span class="envelope" onclick="pickLucky(this)">🧧</span>
     <span class="envelope" onclick="pickLucky(this)">🧧</span>
@@ -132,30 +136,31 @@ function pickLucky(element) {
     picked = true;
     element.classList.add("open");
 
-const prizes = [
-    { 
-        money: "8386", 
-        wish: "🎊 Chúc năm mới 8386 – phát tài phát lộc, tiền vô như nước!" 
-    },
-    { 
-        money: "9999", 
-        wish: "💎 Chúc 9999 – sức khỏe bền lâu, thành công dài lâu!" 
-    },
-    { 
-        money: "2026", 
-        wish: "🌸 Chúc 2026 – năm mới tròn đầy, lộc đến quanh năm!" 
-    }
-];
+    const prizes = [
+        { 
+            money: "8386", 
+            wish: "🎊 Chúc năm mới 8386 – phát tài phát lộc, tiền vô như nước!" 
+        },
+        { 
+            money: "9999", 
+            wish: "💎 Chúc 9999 – sức khỏe bền lâu, thành công dài lâu!" 
+        },
+        { 
+            money: "2026", 
+            wish: "🌸 Chúc 2026 – năm mới tròn đầy, lộc đến quanh năm!" 
+        }
+    ];
 
-const random = prizes[Math.floor(Math.random() * prizes.length)];
+    const random = prizes[Math.floor(Math.random() * prizes.length)];
 
-setTimeout(() => {
-    document.getElementById("result").innerHTML =
-        "🎉 Chúc Mừng 🎉<br><br>" +
-        "💰 <span style='font-size:28px;color:#00bfff'>" + random.money + "đ</span><br><br>" +
-        random.wish + "<br><br>" +
-        "📸 Chụp màn hình gửi Đình Anh nha 😆";
-}, 400);
+    setTimeout(() => {
+        document.getElementById("result").innerHTML =
+            "🎉 Chúc Mừng 🎉<br><br>" +
+            "💰 <span style='font-size:28px;color:#00bfff'>" + random.money + "đ</span><br><br>" +
+            random.wish + "<br><br>" +
+            "📸 Chụp màn hình gửi Đình Anh nha 😆";
+    }, 400);
+}
 
 function showQR() {
     document.getElementById("qrBox").style.display = "block";
