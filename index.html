@@ -12,7 +12,6 @@ body {
     text-align: center;
     color: white;
 
-    /* Nền + lớp tối luôn trong background */
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
         url("bg-tet-2026.jpg") no-repeat center center fixed;
@@ -26,12 +25,6 @@ h1 {
     text-shadow: 3px 3px 10px black;
 }
 
-p {
-    font-size: 20px;
-    color: #fff8dc;
-    text-shadow: 2px 2px 6px black;
-}
-
 .envelopes {
     margin-top: 60px;
 }
@@ -40,11 +33,17 @@ p {
     font-size: 95px;
     cursor: pointer;
     margin: 20px;
-    transition: transform 0.3s;
+    display: inline-block;
+    transition: transform 0.6s;
+}
+
+/* Hiệu ứng bật nắp */
+.envelope.open {
+    transform: rotateX(180deg);
 }
 
 .envelope:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
 #result {
@@ -83,12 +82,11 @@ button {
 
 <h1>🧧 BỐC LÌ XÌ TẾT 2026 🧧</h1>
 <p>Chọn 1 bao lì xì may mắn của bạn 🎁</p>
-<p>Lưu ý: chỉ chọn 1 lần, số tiền tuy nhỏ nhưng ý nghĩa nha 🎁</p>
 
 <div class="envelopes">
-    <span class="envelope" onclick="pickLucky()">🧧</span>
-    <span class="envelope" onclick="pickLucky()">🧧</span>
-    <span class="envelope" onclick="pickLucky()">🧧</span>
+    <span class="envelope" onclick="pickLucky(this)">🧧</span>
+    <span class="envelope" onclick="pickLucky(this)">🧧</span>
+    <span class="envelope" onclick="pickLucky(this)">🧧</span>
 </div>
 
 <div id="result"></div>
@@ -104,28 +102,34 @@ button {
 
 let picked = false;
 
-function pickLucky() {
+function pickLucky(element) {
 
     if (picked) {
-        alert("Bạn đã bốc rồi nha 😜 Chụp màn hình gửi Đình Anh nha!");
+        alert("Bạn đã bốc rồi nha 😜");
         return;
     }
 
     picked = true;
 
+    // Thêm hiệu ứng bật nắp
+    element.classList.add("open");
+
     const prizes = [
-        { money: "8386đ", wish: "🎊 Phát tài phát lộc! Năm mới tiền vào như nước!" },
-        { money: "5678đ", wish: "🚀 Tăng tiến liên tục! Thành công không ngừng!" },
-        { money: "1314đ", wish: "❤️ Trọn đời hạnh phúc, gia đình bình an!" }
+        { money: "8386đ", wish: "🎊 Phát tài phát lộc!" },
+        { money: "5678đ", wish: "🚀 Tăng tiến liên tục!" },
+        { money: "1314đ", wish: "❤️ Trọn đời hạnh phúc!" }
     ];
 
     const random = prizes[Math.floor(Math.random() * prizes.length)];
 
-    document.getElementById("result").innerHTML =
-        "🎉 Chúc Mừng 🎉<br><br>" +
-        "💰 <span style='font-size:38px;color:#00bfff'>" + random.money + "</span><br><br>" +
-        random.wish + "<br><br>" +
-        "📸 Chụp màn hình gửi Đình Anh nha 😆";
+    // Đợi animation xong mới hiện kết quả
+    setTimeout(() => {
+        document.getElementById("result").innerHTML =
+            "🎉 Chúc Mừng 🎉<br><br>" +
+            "💰 <span style='font-size:38px;color:#00bfff'>" + random.money + "</span><br><br>" +
+            random.wish + "<br><br>" +
+            "📸 Chụp màn hình gửi Đình Anh nha 😆";
+    }, 600);
 }
 
 function showQR() {
