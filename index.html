@@ -91,7 +91,7 @@ button {
 
 <h1>🧧 BỐC LÌ XÌ TẾT 2026 🧧</h1>
 <p>Chọn 1 bao lì xì may mắn của bạn 🎁</p>
-
+<p>Lưu ý:chỉ chọn 1 lần,số tiền may mắn tuy nhỏ nhưng ý nghĩa thoi nhe 🎁</p>
 <div class="envelopes">
     <span class="envelope" onclick="pickLucky()">🧧</span>
     <span class="envelope" onclick="pickLucky()">🧧</span>
@@ -138,10 +138,11 @@ function pickLucky() {
     const random = prizes[Math.floor(Math.random() * prizes.length)];
 
     document.getElementById("result").innerHTML =
-        "🎉Chúc Mừng 🎉<br><br>" +
-        "💰 <span style='font-size:38px;color:#00bfff'>" + random.money + "</span><br><br>" +
-        random.wish<br><br>+
-        "Chụp Màn Hình gửi Đình Anh nha";
+    "🎉 Chúc Mừng 🎉<br><br>" +
+    "💰 <span style='font-size:38px;color:#00bfff'>" + random.money + "</span><br><br>" +
+    random.wish + "<br><br>" +
+    "📸 Chụp màn hình gửi Đình Anh nha 😆";
+
 }
 
 function showQR() {
