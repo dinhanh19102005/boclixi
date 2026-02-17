@@ -13,6 +13,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     color: white;
+    position: relative;
 }
 
 /* Lớp phủ tối */
@@ -25,6 +26,7 @@ body::before {
     height: 100%;
     background: rgba(0,0,0,0.45);
     z-index: -1;
+    pointer-events: none; 
 }
 
 h1 {
