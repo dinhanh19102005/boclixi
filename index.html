@@ -15,7 +15,7 @@ body {
     color: white;
 }
 
-/* Lớp phủ tối giúp chữ nổi */
+/* Lớp phủ tối */
 body::before {
     content: "";
     position: fixed;
@@ -27,7 +27,6 @@ body::before {
     z-index: -1;
 }
 
-/* Tiêu đề nổi bật */
 h1 {
     font-size: 48px;
     color: gold;
@@ -64,7 +63,7 @@ p {
 }
 
 button {
-    margin-top: 20px;
+    margin-top: 25px;
     padding: 12px 25px;
     font-size: 18px;
     border: none;
@@ -74,13 +73,23 @@ button {
     color: red;
     font-weight: bold;
 }
+
+#qrBox {
+    margin-top: 30px;
+    display: none;
+}
+
+#qrBox img {
+    width: 250px;
+    border-radius: 15px;
+}
 </style>
 </head>
 
 <body>
 
 <h1>🧧 BỐC LÌ XÌ TẾT 2026 🧧</h1>
-<p>Chọn 1 bao lì xì may mắn của bạn 🎁 (Chỉ 1 lần thôi nha 😆)</p>
+<p>Chọn 1 bao lì xì may mắn của bạn 🎁</p>
 
 <div class="envelopes">
     <span class="envelope" onclick="pickLucky()">🧧</span>
@@ -89,7 +98,13 @@ button {
 </div>
 
 <div id="result"></div>
-<button onclick="resetGame()">Chơi lại</button>
+
+<button onclick="showQR()">Lì Xì Đình Anh 💌</button>
+
+<div id="qrBox">
+    <h2 style="color:gold;">🎁 Quét QR để lì xì cho Đình Anh 😆</h2>
+    <img src="anh-lixi.png" alt="QR Đình Anh">
+</div>
 
 <script>
 
@@ -111,7 +126,6 @@ function pickLucky() {
         },
         {
             money: "5678đ",
-        
             wish: "🚀 Tăng tiến liên tục! Thành công không ngừng!"
         },
         {
@@ -125,14 +139,11 @@ function pickLucky() {
     document.getElementById("result").innerHTML =
         "🎉 CHÚC MỪNG 🎉<br><br>" +
         "💰 <span style='font-size:38px;color:gold'>" + random.money + "</span><br><br>" +
-        "🔢 <span style='font-size:34px;color:#00ffff'>" + random.number + "</span><br><br>" +
         random.wish;
-
 }
 
-function resetGame() {
-    picked = false;
-    document.getElementById("result").innerHTML = "";
+function showQR() {
+    document.getElementById("qrBox").style.display = "block";
 }
 
 </script>
