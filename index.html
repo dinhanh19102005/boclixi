@@ -29,9 +29,10 @@ body::before {
 
 h1 {
     font-size: 48px;
-    color: gold;
+    color: #00bfff;   /* xanh dương sáng */
     text-shadow: 3px 3px 10px black;
 }
+
 
 p {
     font-size: 20px;
@@ -113,7 +114,7 @@ let picked = false;
 function pickLucky() {
 
     if (picked) {
-        alert("Bạn đã bốc rồi nha 😜");
+        alert("Bạn đã bốc rồi nha 😜,Chụp Màn hình gửi Đình Anh nha");
         return;
     }
 
@@ -137,9 +138,10 @@ function pickLucky() {
     const random = prizes[Math.floor(Math.random() * prizes.length)];
 
     document.getElementById("result").innerHTML =
-        "🎉 CHÚC MỪNG 🎉<br><br>" +
-        "💰 <span style='font-size:38px;color:gold'>" + random.money + "</span><br><br>" +
-        random.wish;
+        "🎉Chúc Mừng 🎉<br><br>" +
+        "💰 <span style='font-size:38px;color:#00bfff'>" + random.money + "</span><br><br>" +
+        random.wish<br><br>+
+        "Chụp Màn Hình gửi Đình Anh nha";
 }
 
 function showQR() {
