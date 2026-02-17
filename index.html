@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bốc Lì Xì Tết 2026</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 40px;
+    background: url("bg-tet-2026.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.envelopes {
+    margin-top: 60px;
+}
+
+.envelope {
+    font-size: 90px;
+    cursor: pointer;
+    margin: 20px;
+    transition: transform 0.3s;
+}
+
+.envelope:hover {
+    transform: scale(1.2);
+}
+
+#result {
+    margin-top: 40px;
+    font-size: 26px;
+    font-weight: bold;
+    min-height: 120px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🧧 Bốc Lì Xì Tết 2026 🧧</h1>
+<p>Chọn 1 bao lì xì may mắn của bạn 🎁 (Chỉ 1 lần thôi nha 😆)</p>
+
+<div class="envelopes">
+    <span class="envelope" onclick="pickLucky()">🧧</span>
+    <span class="envelope" onclick="pickLucky()">🧧</span>
+    <span class="envelope" onclick="pickLucky()">🧧</span>
+</div>
+
+<div id="result"></div>
+<button onclick="resetGame()">Chơi lại</button>
+
+<script>
+
+let picked = false;
+
+function pickLucky() {
+
+    if (picked) {
+        alert("Bạn đã bốc rồi nha 😜");
+        return;
+    }
+
+    picked = true;
+
+    const prizes = [
+        {
+            money: "20.000đ",
+            number: "8386",
+            wish: "🎊 Phát tài phát lộc! Năm mới tiền vào như nước, làm đâu thắng đó!"
+        },
+        {
+            money: "50.000đ",
+            number: "5678",
+            wish: "🚀 Tăng tiến liên tục! Học hành – sự nghiệp thăng hạng không ngừng!"
+        },
+        {
+            money: "100.000đ",
+            number: "1314",
+            wish: "❤️ Trọn đời trọn kiếp! Gia đình hạnh phúc, tình bạn bền lâu!"
+        }
+    ];
+
+    const random = prizes[Math.floor(Math.random() * prizes.length)];
+
+    document.getElementById("result").innerHTML =
+        "🎉 CHÚC MỪNG 🎉<br><br>" +
+        "💰 Bạn nhận được: <span style='font-size:35px;color:yellow'>" + random.money + "</span><br><br>" +
+        "🔢 Số may mắn của bạn: <span style='font-size:32px;color:#00ffcc'>" + random.number + "</span><br><br>" +
+        random.wish;
+
+}
+
+function resetGame() {
+    picked = false;
+    document.getElementById("result").innerHTML = "";
+}
+
+</script>
+
+</body>
+</html>
